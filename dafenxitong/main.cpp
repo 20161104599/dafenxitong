@@ -145,12 +145,74 @@ void output(Student *s,int n,Referee *r)
         
     }
 }
+int searchByNo(Student *s,Referee *r)//学号查询
+{
+    int a;
+    int i;
+    int flag=1;
+    while(flag)
+    {
+        cout<<"请输出要查找的学生编号";
+        cin>>a;
+        
+        for(i=0; i<s[0].f; )
+        {
+            if(s[i].no!=a)
+            {
+                i++;
+            }
+            else{
+                break;
+            }
+        }
+        if(i>=s[0].f||a<=0)
+        {
+            cout<<"该学生编号不存在"<<endl;
+        }
+        else
+        {
+            cout<<"编号为"<<s[i].no<<"的学生";
+            cout<<"姓名是：";
+            cout<<s[i].name<<endl;
+            cout<<"性别：";
+            cout<<s[i].sex<<endl;
+            cout<<"节目名称：";
+            cout<<s[i].Program<<endl;
+            cout<<"表演形式：";
+            cout<<s[i].form<<endl;
+            cout<<"班级：";
+            cout<<s[i].Class<<endl;
+            cout<<"电话号：";
+            cout<<s[i].tel<<endl;
+            cout<<"第一个评委"<<r[0].name<<"的打分为：";
+            cout<<s[i].score[0]<<endl;
+            cout<<"第二个评委"<<r[1].name<<"的打分为：";
+            cout<<s[i].score[1]<<endl;
+            cout<<"第三个评委"<<r[2].name<<"的打分为：";
+            cout<<s[i].score[2]<<endl;
+            cout<<"第四个评委"<<r[3].name<<"的打分为：";
+            cout<<s[i].score[3]<<endl;
+            cout<<"第五个评委"<<r[4].name<<"的打分为：";
+            cout<<s[i].score[4]<<endl;
+            cout<<"去掉一个最低成绩为：";
+            cout<<s[i].min<<endl;
+            cout<<"去掉一个最高成绩为：";
+            cout<<s[i].max<<endl;
+            cout<<"平均分是：";
+            cout<<s[i].avg<<endl;
+            flag=0;
+        }
+        
+    }
+    return 0;
+}
 int main(int argc, const char * argv[]) {
     struct Student s[100];
     struct Referee r[100];
     inputs(s);
     inputr(r);
     input(s,s[0].f);
+    searchByNo(s,r)
     
     output(s,s[0].f,r);
     return 0;
